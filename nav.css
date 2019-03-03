@@ -36,6 +36,8 @@
 .dropItems {
 	padding-left: 0px;
 	text-align: left;
+
+	font-size: 16px;
 }
 
 .dropItems a {
@@ -43,7 +45,8 @@
 	background-color: rgb(249.9, 249.9, 249.9);
 	text-decoration: none;
 
-	padding-top: 12px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 }
 
 .dropItems a:hover {
