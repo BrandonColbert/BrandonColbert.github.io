@@ -1,7 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 html * {
-	font-family: Arial !important;
+	font-family: Montserrat;
 }
 
 body {
-	padding: 20px;
+	margin: 25px;
+	animation: colorchange 20s infinite;
+}
+
+@keyframes colorchange {
+	0% { background-color: dodgerblue; }
+	50% { background-color: royalblue; }
+	100% { background-color: dodgerblue; }
+}
+
+a {
+	color: inherit;
+}
+
+/* Content */
+
+.content {
+	background-color: white;
+
+	border: 20px solid transparent;
+	border-radius: 15px;
+}
+
+.subcontent {
+	margin: auto 120px;
+}
+
+/* Projects */
+
+.sectionDesc {
+	margin: 50px auto;
+	max-width: 500px;
+	text-decoration: none;
+}
+
+/* Blog */
+
+.blogTitle {
+	margin-bottom: 20px;
+	font-size: 32px;
+	text-decoration: underline;
+	text-decoration-color: midnightblue;
+}
+
+.blogDate {
+	margin-bottom: 20px;
+	font-size: 22px;
+	color: darkslategray;
+}
+
+.blogText {
+	margin-bottom: 30px;
+	max-width: 80%;
+}
+
+.blogButton {
+	user-select: none;
+	font-size: 20px;
+
+	background-color: rgb(235, 235, 235);
+
+	outline: none;
+	border: 0px;
+}
+
+.blogButton:hover {
+	background-color: rgb(228, 228, 228);
+	transition: 0.25s ease-in;
+}
+
+.blogButton:active {
+	background-color: lightgray;
+	transition: 0.05s ease-in;
+}
+
+.blogButtonRight {
+	text-align: right;
+	margin-left: 50px;
 }
