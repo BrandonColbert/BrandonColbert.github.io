@@ -106,3 +106,8 @@ iframe {
 	position: relative;
 	padding-top: 57%;
 }
+
+/** Images */
+img {
+	border-radius: 20px;
+}
