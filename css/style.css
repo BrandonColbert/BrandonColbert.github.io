@@ -26,6 +26,8 @@ a {
 
 	border: 20px solid transparent;
 	border-radius: 15px;
+
+	min-height: calc(100vh - 90px);
 }
 
 .subcontent {
@@ -47,12 +49,6 @@ a {
 	font-size: 32px;
 	text-decoration: underline;
 	text-decoration-color: midnightblue;
-}
-
-.blogDate {
-	margin-bottom: 20px;
-	font-size: 22px;
-	color: darkslategray;
 }
 
 .blogText {
@@ -95,7 +91,7 @@ video {
 	border-radius: 20px;
 }
 
-iframe {
+.frameVideo > iframe {
 	border-radius: 20px;
 	position: absolute;
 	top: 0;
