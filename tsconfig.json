@@ -1,17 +1,21 @@
 {
 	"compilerOptions": {
-		"target": "ES6",
-		"module": "CommonJS",
-		"outDir": "./js",
-		"baseUrl": "./src",
-		"inlineSourceMap": true,
+		"target": "ESNext",
+		"rootDir": "src",
+		"outDir": "js",
+		"baseUrl": ".",
+		"removeComments": false,
 		"inlineSources": true,
-		"noImplicitAny": true,
-		"noImplicitReturns": true,
+		"inlineSourceMap": true,
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
-		"removeComments": true,
-		"strict": false
+		"emitDecoratorMetadata": true,
+		"allowSyntheticDefaultImports": true,
+		"importsNotUsedAsValues": "preserve",
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true
 	},
 	"include": [
 		"src/**/*"

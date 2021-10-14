@@ -1,0 +1,25 @@
+@import "./style.css";
+
+main {
+	font-size: 18px;
+}
+
+video, img, iframe {
+	border-radius: 10px;
+	border: 6px solid var(--color-foreground);
+}
+
+video, img {
+	width: 100%;
+	height: auto;
+}
+
+section, figure {
+	margin: 50px 0px;
+}
+
+figcaption {
+	margin: 10px 0px;
+
+	text-align: center;
+}

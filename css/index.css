@@ -1,0 +1,403 @@
+@import "./style.css";
+
+body.deferred * {
+	animation-play-state: paused !important;
+	transition: none !important;
+}
+
+body {
+	--duration-selection: 325ms;
+
+	display: grid;
+	grid:
+		"     sidebar navigation" max-content
+		"     sidebar    content" 1fr
+		/ max-content        1fr;
+	;
+
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	padding: 0px;
+	border: none;
+	margin: 0px;
+
+	background: var(--color-background);
+}
+
+	@keyframes sidebarGapExpand {
+		from { gap: 0px; }
+		to { gap: 20px; }
+	}
+
+#sidebar {
+	--duration-title-expand: 375ms;
+	--duration-projects-expand: 500ms;
+	--duration-info-item-reveal: 750ms;
+	--delay-info-item-reveal: 250ms;
+
+	grid-area: sidebar;
+
+	display: grid;
+	gap: 0px;
+	grid:
+		"   title" 60px
+		"projects" minmax(min-content, max-content)
+		"    info" 20px
+	;
+
+	padding: 20px;
+
+	background: var(--color-background-variant);
+
+	animation: sidebarGapExpand var(--duration-projects-expand) forwards linear;
+	animation-delay: var(--duration-title-expand);
+}
+
+	@keyframes titleExpand {
+		from { width: 0%; }
+		to { width: 100%; }
+	}
+
+	#sidebar > #title {
+		grid-area: title;
+
+		display: grid;
+		grid:
+			" text    .    ." 30px
+			"   uh  uv1  uv2" 20px
+			/ auto 10px 10px
+		;
+
+		animation: titleExpand var(--duration-title-expand) forwards ease-out;
+	}
+
+		#sidebar > #title > svg {
+			height: 100%;
+
+			stroke: var(--color-text);
+			stroke-width: 2px;
+		}
+
+		#sidebar > #title > #text {
+			grid-area: text;
+
+			white-space: nowrap;
+			overflow: hidden;
+			font-size: 25px;
+		}
+
+		#sidebar > #title > :nth-child(2) {
+			grid-area: uh;
+
+			width: 100%;
+
+			align-self: center;
+
+			border-color: var(--color-text);
+		}
+
+		#sidebar > #title > :nth-child(3) {
+			grid-area: uv1;
+		}
+
+		@keyframes uv2 {
+			from { margin-left: -10px; }
+			to { margin-left: 6px; }
+		}
+
+		#sidebar > #title > :nth-child(4) {
+			grid-area: uv2;
+
+			animation: uv2 var(--duration-title-expand) forwards ease-out;
+		}
+
+	@keyframes projectsReveal {
+		from { height: 0px; }
+		to { height: 200px; }
+	}
+
+	#sidebar > #projects {
+		grid-area: projects;
+
+		height: 0px;
+
+		overflow-y: auto;
+		direction: rtl;
+
+		animation: projectsReveal var(--duration-projects-expand) forwards ease-out;
+		animation-delay: var(--duration-title-expand);
+	}
+
+		#sidebar > #projects > .panel {
+			display: grid;
+			gap: 10px;
+			grid:
+				" text icon" 30px
+				/ auto 30px
+			;
+
+			margin: 10px 0px 10px 0px;
+
+			direction: ltr;
+
+			cursor: pointer;
+			user-select: none;
+		}
+
+			#sidebar > #projects > .panel > div {
+				grid-area: text;
+
+				padding: 5px;
+				border-radius: 10px;
+
+				align-self: center;
+				justify-self: right;
+
+				font-size: 20px;
+
+				transition: background 150ms ease;
+			}
+
+			#sidebar > #projects > .panel:hover > div {
+				background: var(--color-primary);
+			}
+
+			#sidebar > #projects > .panel:active > div {
+				background: var(--color-primary-variant);
+			}
+
+			#sidebar > #projects > .panel > svg {
+				grid-area: icon;
+
+				stroke: var(--color-text);
+			}
+
+	#sidebar > #info {
+		grid-area: info;
+
+		display: grid;
+		gap: 10px;
+		/* grid-auto-flow: column; */
+		grid-template-rows: auto;
+		grid-template-columns: auto auto;
+	}
+
+		#sidebar > #info > .item:nth-child(n + 3) {
+			grid-column-start: span 2;
+		}
+
+		#sidebar > #info > .item {
+			display: grid;
+			gap: 0px;
+			grid: "leftBorder text rightBorder" 20px;
+
+			width: fit-content;
+			margin: 10px 0px;
+
+			place-self: center;
+
+			cursor: pointer;
+			user-select: none;
+		}
+
+			#sidebar > #info > .item > svg {
+				height: 100%;
+
+				stroke: var(--color-text);
+				stroke-width: 4px;
+			}
+
+			#sidebar > #info > .item > :nth-child(1) {
+				grid-area: leftBorder;
+			}
+
+			@keyframes itemReveal {
+				from {
+					visibility: visible;
+					max-width: 0px;
+				}
+
+				to {
+					visibility: visible;
+					max-width: 200px;
+				}
+			}
+
+			#sidebar > #info > .item > :nth-child(2) {
+				grid-area: text;
+
+				visibility: hidden;
+
+				max-width: 0px;
+
+				padding: 2px 4px;
+				border-radius: 10px;
+
+				align-self: center;
+
+				white-space: nowrap;
+				overflow: hidden;
+				font-size: 18px;
+
+				animation: itemReveal var(--duration-info-item-reveal) forwards linear;
+				animation-delay: var(--delay-info-item-reveal);
+
+				transition: background 150ms ease;
+			}
+
+			#sidebar > #info > .item:hover > :nth-child(2) {
+				background: var(--color-primary);
+			}
+
+			#sidebar > #info > .item:active > :nth-child(2) {
+				background: var(--color-primary-variant);
+			}
+
+			#sidebar > #info > .item > :nth-child(3) {
+				grid-area: rightBorder;
+			}
+
+#navigation {
+	grid-area: navigation;
+
+	display: grid;
+	grid-auto-flow: column;
+
+	z-index: 1;
+	position: absolute;
+	justify-self: end;
+
+	width: min(800px, 100%);
+	height: fit-content;
+	overflow-y: hidden;
+
+	padding: 12px 0px;
+	border-radius: 0px 0px 0px 30px;
+	margin: 0px 0px 10px 0px;
+
+	background: var(--color-background-variant);
+}
+
+	#navigation > .item {
+		display: grid;
+
+		width: 100%;
+		height: 100%;
+	}
+
+		#navigation > .item > #descriptor {
+			--underline-gap: 5px;
+			--diagonal-size: 26px;
+			
+			position: relative;
+			place-self: center;
+
+			display: block;
+
+			cursor: pointer;
+			user-select: none;
+		}
+
+			#navigation > .item > #descriptor > #text {
+				z-index: 0;
+
+				padding: 3px 10px;
+				border-radius: 10px;
+				margin: 0px 0px var(--underline-gap) calc(var(--diagonal-size) + var(--underline-gap));
+
+				font-size: 20;
+				white-space: nowrap;
+			}
+
+			#navigation > .item > #descriptor > #underline {
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				left: 0;
+
+				display: grid;
+				grid:
+					"                    d    h"
+					/ var(--diagonal-size) auto
+				;
+
+				width: 100%;
+				height: 100%;
+
+				pointer-events: none;
+			}
+
+				#navigation > .item > #descriptor > #underline > :nth-child(1) {
+					grid-area: d;
+
+					visibility: visible;
+
+					align-self: end;
+					transform: rotate(-115deg) translate(-12px, 22px);
+					transform-origin: 0% 0%;
+
+					width: 100%;
+					height: 2px;
+
+					border: none;
+					padding: 0px;
+					margin: 0px;
+
+					background: var(--color-text);
+					border-color: var(--color-text);
+				}
+
+				#navigation > .item > #descriptor > #underline > :nth-child(2) {
+					grid-area: h;
+
+					visibility: visible;
+
+					width: 100%;
+
+					padding: 0px;
+					margin: 0px;
+
+					align-self: end;
+
+					border-color: var(--color-text);
+				}
+
+#content {
+	grid-area: content;
+	display: grid;
+
+	width: 100%;
+	height: auto;
+	overflow-y: auto;
+
+	padding: 0px;
+	border: none;
+	padding: 60px 0px 0px 0px;
+	margin: 0px;
+}
+
+	#content > main {
+		max-width: 800px;
+		width: fit-content;
+
+		margin: 15px 30px;
+
+		justify-self: center;
+	}
+
+@media (max-width: 1050px) {
+	#navigation {
+		position: static;
+
+		border-radius: 0px;
+		border-bottom: 3px solid var(--color-background-variant);
+
+		background: none;
+	}
+
+	#content {
+		padding: 0px;
+	}
+}

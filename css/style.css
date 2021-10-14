@@ -1,109 +1,49 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-html * {
+/** Theme description */
+:root {
+	--color-text: #f4f6f9;
+	--color-background: #282d3f;
+	--color-background-variant: #262b3f;
+	--color-foreground: #2b3147;
+	--color-foreground-variant: #38405e;
+	--color-primary: #2f52ca;
+	--color-primary-variant: #2f53ca9a;
+	--color-accent: #e9f345;
+	--color-accent-variant: #eef826;
+}
+
+/** Text appearance */
+html {
 	font-family: Montserrat;
 }
 
-body {
-	margin: 25px;
-	animation: colorchange 20s infinite;
+* {
+	color: var(--color-text);
 }
 
-@keyframes colorchange {
-	0% { background-color: dodgerblue; }
-	50% { background-color: royalblue; }
-	100% { background-color: dodgerblue; }
+[type=text] {
+	color: var(--color-text);
 }
 
-a {
-	color: inherit;
+::placeholder {
+	color: var(--color-text);
+	filter: opacity(70%);
 }
 
-/* Content */
-
-.content {
-	background-color: white;
-
-	border: 20px solid transparent;
-	border-radius: 15px;
-
-	min-height: calc(100vh - 90px);
+/** Scollbar */
+::-webkit-scrollbar {
+	width: 15px;
 }
 
-.subcontent {
-	margin: auto 120px;
+::-webkit-scrollbar-track {
+	background: var(--color-foreground);
 }
 
-/* Projects */
-
-.sectionDesc {
-	margin: 50px auto;
-	max-width: 500px;
-	text-decoration: none;
+::-webkit-scrollbar-thumb {
+	background: var(--color-foreground-variant);
 }
 
-/* Blog */
-
-.blogTitle {
-	margin-bottom: 20px;
-	font-size: 32px;
-	text-decoration: underline;
-	text-decoration-color: midnightblue;
-}
-
-.blogText {
-	margin-bottom: 30px;
-	max-width: 80%;
-}
-
-.blogButtons {
-	white-space: nowrap;
-}
-
-.blogButton {
-	user-select: none;
-	font-size: 20px;
-
-	background-color: rgb(235, 235, 235);
-	outline: none;
-
-	border: 5px solid transparent;
-	border-radius: 360px;
-}
-
-.blogButton:hover {
-	background-color: rgb(228, 228, 228);
-	transition: 0.25s ease-in;
-}
-
-.blogButton:active {
-	background-color: lightgray;
-	transition: 0.05s ease-in;
-}
-
-.blogButtonRight {
-	text-align: right;
-	margin-left: 50px;
-}
-
-/** Videos */
-video {
-	border-radius: 20px;
-}
-
-.frameVideo > iframe {
-	border-radius: 20px;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.frameVideo {
-	position: relative;
-	padding-top: 57%;
-}
-
-/** Images */
-img {
-	border-radius: 20px;
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-primary);
 }

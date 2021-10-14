@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+	<filter id="glitch">
+		<!--Distort source-->
+		<feTurbulence result="standardMask" type="turbulence" baseFrequency="0.05" numOctaves="5"/>
+		<feDisplacementMap result="channelStandard" id="cs"
+			in2="standardMask"
+			in="SourceGraphic"
+			xChannelSelector="R"
+			yChannelSelector="G"
+		>
+			<animate attributeName="scale" values="5;0" dur="250ms" fill="freeze"/>
+		</feDisplacementMap>
+
+		<!-- Displaced blue copy -->
+		<feOffset in="SourceGraphic">
+			<animate attributeName="dx" values="10;4;0" keyTimes="0; 0.3; 1" dur="250ms" fill="freeze"/>
+			<animate attributeName="dy" values="-10;-4;0" keyTimes="0; 0.3; 1" dur="250ms" fill="freeze"/>
+		</feOffset>
+		<feColorMatrix result="channelBlue"
+			type="matrix"
+			values="
+				0 0 0 0 0
+				0 0 0 0 0
+				1 1 1 1 0
+				0 0 0 1 0
+			"
+		/>
+
+		<!-- Displaced red copy -->
+		<feOffset in="SourceGraphic">
+			<animate attributeName="dx" values="-10;-4;0" keyTimes="0; 0.3; 1" dur="250ms" fill="freeze"/>
+			<animate attributeName="dy" values="10;4;0" keyTimes="0; 0.3; 1" dur="250ms" fill="freeze"/>
+		</feOffset>
+		<feColorMatrix result="channelRed"
+			type="matrix"
+			values="
+				1 1 1 1 0
+				0 0 0 0 0
+				0 0 0 0 0
+				0 0 0 1 0
+			"
+		/>
+
+		<!-- Resulting graphic -->
+		<feMerge>
+			<feMergeNode in="channelBlue"/>
+			<feMergeNode in="channelRed"/>
+			<feMergeNode in="channelStandard"/>
+		</feMerge>
+	</filter>
+</svg>

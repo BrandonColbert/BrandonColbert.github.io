@@ -1,0 +1,103 @@
+{
+	"info": [
+		{
+			"name": "About",
+			"url": "/pages/about.html"
+		},
+		{
+			"name": "Contact",
+			"url": "/pages/contact.html"
+		},
+		{
+			"name": "Collaborations",
+			"url": "/pages/collabs.html"
+		},
+		{
+			"name": "Other",
+			"url": "/pages/other.html"
+		}
+	],
+	"projects": [
+		{
+			"name": "Tabs!",
+			"url": "/pages/projects/tabs.html",
+			"navFields": [
+				{"name": "Get it!", "url": "https://chrome.google.com/webstore/detail/tabs_exclamation_point"},
+				{"name": "Guide", "url": "https://github.com/BrandonColbert/Tabs/wiki"},
+				{"name": "Source", "url": "https://github.com/BrandonColbert/Tabs"}
+			]
+		},
+		{
+			"name": "Noise",
+			"url": "/pages/projects/noise.html",
+			"navFields": [
+				{"name": "Get it!", "url": "https://github.com/BrandonColbert/Noise/releases"},
+				{"name": "Guide", "url": "https://github.com/BrandonColbert/Noise/wiki"},
+				{"name": "Source", "url": "https://github.com/BrandonColbert/Noise"}
+			]
+		},
+		{
+			"name": "Formulas",
+			"url": "/pages/projects/formulas.html",
+			"navFields": [
+				{"name": "Get it!", "url": "https://github.com/BrandonColbert/Formulas/releases"},
+				{"name": "Guide", "url": "https://github.com/BrandonColbert/Formulas/wiki"},
+				{"name": "Source", "url": "https://github.com/BrandonColbert/Formulas"}
+			]
+		},
+		{
+			"name": "Supeer",
+			"url": "/pages/projects/supeer.html",
+			"navFields": [
+				{"name": "Guide", "url": "https://github.com/BrandonColbert/Supeer/wiki"},
+				{"name": "Source", "url": "https://github.com/BrandonColbert/Supeer"}
+			]
+		},
+		{
+			"name": "Antipodean Chess",
+			"url": "/pages/projects/antipodean-chess.html",
+			"navFields": [
+				{"name": "Play", "url": "/pages/projects/antipodean-chess/play.html"},
+				{"name": "Source", "url": "https://github.com/BrandonColbert/Antipodean-Chess"}
+			]
+		},
+		{
+			"name": "Carousel Launcher",
+			"url": "/pages/projects/carousel-launcher.html",
+			"navFields": [
+				{"name": "Get it!", "url": "https://play.google.com/store/apps/details?id=exn.database.android.carousellauncher&hl=en_US"},
+				{"name": "Source", "url": "https://github.com/BrandonColbert/Carousel-Launcher"}
+			]
+		},
+		{
+			"name": "Dogma of Space",
+			"url": "/pages/projects/dogma-of-space.html",
+			"navFields": [
+				{"name": "Play", "url": "/pages/projects/dogma-of-space/play.html"},
+				{"name": "Source", "url": "https://github.com/BrandonColbert/Dogma-of-Space"}
+			]
+		},
+		{
+			"name": "Fitr",
+			"url": "/pages/projects/fitr.html",
+			"navFields": [
+				{"name": "Preview"},
+				{"name": "Source", "url": "https://github.com/BrandonColbert/Fitr"}
+			]
+		},
+		{
+			"name": "RemAL",
+			"url": "/pages/projects/remal.html",
+			"navFields": [
+				{"name": "Preview"},
+				{"name": "Get it!"},
+				{"name": "Guide"},
+				{"name": "Source"}
+			]
+		},
+		{
+			"name": "This Website",
+			"url": "/pages/projects/this-website.html"
+		}
+	]
+}
