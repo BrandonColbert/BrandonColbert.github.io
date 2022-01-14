@@ -10,9 +10,9 @@ body {
 
 	display: grid;
 	grid:
-		"     sidebar navigation" max-content
+		"     sidebar navigation" auto
 		"     sidebar    content" 1fr
-		/ max-content        1fr;
+		/       320px        1fr;
 	;
 
 	width: 100%;
@@ -43,7 +43,7 @@ body {
 	gap: 0px;
 	grid:
 		"   title" 60px
-		"projects" minmax(min-content, max-content)
+		"projects" 200px
 		"    info" 20px
 	;
 
